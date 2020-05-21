@@ -2,17 +2,14 @@ package com.example.demo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
 
 @Controller
 public class StoreController {
-    Owners owners = new Owners();
+
     Account loginPage = new Account();
     Account homePage = new Account();
     Account catPage = new Account();
@@ -20,22 +17,24 @@ public class StoreController {
     Account profilePage = new Account();
     @GetMapping(value = {"/"})
     public String loadStore(Model model){
+        Owners owners = new Owners();
         model.addAttribute("account", new Account());
-        if(!owners.getOwners().isEmpty()){
-            model.addAttribute("owners", owners.getOwners());
-            System.out.println("Inside if");
-        } else {
-            ArrayList<Account> empty = new ArrayList<Account>();
-            empty.clear();
-            model.addAttribute("owners", empty);
-            System.out.println("Inside else");
-        }
+        model.addAttribute("owners", owners);
+//        if(!owners.getOwners().isEmpty()){
+//            model.addAttribute("owners", owners.getOwners());
+//            System.out.println("Inside if");
+//        } else {
+//            ArrayList<Account> empty = new ArrayList<Account>();
+//            empty.clear();
+//            model.addAttribute("owners", empty);
+//            System.out.println("Inside else");
+//        }
 
         return "login";
     }
     @PostMapping("/Account")
-    public String loadStore(@Valid Account account, Model model){
-
+    public String loadStore(@ModelAttribute Account account, Model model){
+        Owners owners = new Owners();
         model.addAttribute("account", account);
         homePage = account;
         owners.setOwner(account);
