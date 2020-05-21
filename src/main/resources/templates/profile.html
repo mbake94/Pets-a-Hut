@@ -18,6 +18,37 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 
+<!--Nav bar begins-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{/HomePage}">Pets a Hut</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Pets
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{/CatPage}">Cats</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{/DogPage}">Dogs</a>
+
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/ProfilePage}">Profile</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<!--Nav bar ends-->
 <!--Header begins-->
 <div class="card mb-3" style="max-width: 100%;">
     <div class="row no-gutters">
@@ -36,10 +67,27 @@
         </div>
         <div class="col-md-8">
             <div class="card-body">
-                <h5 class="card-title">Welcome [[${account.personName}]]</h5>
-                <p class="card-text">Our mission is to provide our customers with a great selection of high quality Pet Products and Pet Foods at the best price possible. We invite you to shop and compare our prices with any other pet supply store, pet supply chain store, grocery store or mass market retailer.</p>
-                <br><br><br><br><br>
-                <p class="card-text"><small class="text-muted" style="alignment: center">Scroll down to continue</small></p>
+                <div class="list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        [[${account.petName}]]'s Account
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">Your [[${account.petType}]] is [[${account.breed}]], which is a large breed. We recommend the following items: </a>
+                    <a href="https://www.chewy.com/wellness-core-grain-free-large-breed/dp/54102?utm_source=partnerize&utm_medium=affiliates&utm_campaign=1100l35838&utm_content=0" class="list-group-item list-group-item-action">
+                        <h5>Large Dog Food</h5>
+                        <p>A common challenge faced by pet parents of larger breed pups is the risk of overfeeding. Bigger dogs grow at a much faster rate than their smaller counterparts, with some weighing in at over 100 pounds in under a year. Having such a fast rate of growth makes them more susceptible to certain risks that smaller breeds don't have to worry about. These can include deficiencies in their nutritional and caloric intake, meaning their diets need to be closely monitored.</p>
+                    </a>
+
+                    <a href="https://www.amazon.com/Feeder-Bloat-Interactive-Puzzle-Travel/dp/B079D8V7C8/ref=sr_1_7?crid=1X7QEXU2KX0LP&dchild=1&keywords=slow+dog+food+feeder&qid=1590087395&sprefix=slow+dog+f%2Caps%2C187&sr=8-7" class="list-group-item list-group-item-action">
+                        <h5>Food and Water Bowls</h5>
+                        <p>You breed is known to eat their food too fast. A slow feeder bowl creates separations or obstructions in the food. This modifies your dog's eating behavior and forces him or her to slow down their eating. By slowing down, your dog is less susceptible to bloating and it improves their digestion of the food.</p>
+                    </a>
+
+                    <a href="https://www.amazon.com/juxzh-Truelove-Harness-Reflective-Attachments/dp/B0773F1KW6/ref=sr_1_1_sspa?dchild=1&keywords=dog+harness&pd_rd_r=f4e3d0fb-7106-4853-b656-28f3f8287225&pd_rd_w=KpLui&pd_rd_wg=LiRqS&pf_rd_p=c856543c-2236-42b5-8daa-bc8c644a2565&pf_rd_r=7DMH0Y001WW7QQEA8FW5&qid=1590087452&refinements=p_n_feature_seven_browse-bin%3A6741344011&s=pet-supplies&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEzM0xFRzVKTlAxNzkyJmVuY3J5cHRlZElkPUEwNjI2NDk2M0IzQURTTlZCR1hVUiZlbmNyeXB0ZWRBZElkPUEwMDY2MTA5MUtJTzFQVk5XUktMTSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=" class="list-group-item list-group-item-action">
+                        <h5>Leashes and Collars</h5>
+                        <p>You breed is known to cause injuries by pulling on collars, we recommend a body harness. Wearing a harness disperses the pressure from one smaller area on the neck, to the back and the body. It spreads the stress over a larger surface area. Neck and trachea injuries might occur if a dog is constantly yanking, pulling or fighting the leash. The body harness takes the direct stress off their neck.</p>
+                    </a>
+
+                </div>
             </div>
         </div>
     </div>

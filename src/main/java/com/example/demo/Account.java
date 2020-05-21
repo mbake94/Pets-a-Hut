@@ -5,12 +5,12 @@ public class Account {
     private String phone;
     private String petInfo;
     private String petName;
-    private int age;
+    private String age;
     private String gender;
     private String petType;
     private String breed;
 
-    public Account(String personName, String phone, String petInfo, String petName, int age, String gender, String petType, String breed) {
+    public Account(String personName, String phone, String petInfo, String petName, String age, String gender, String petType, String breed) {
         this.personName = personName;
         this.phone = phone;
         this.petInfo = petInfo;
@@ -58,11 +58,11 @@ public class Account {
         this.petName = petName;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
