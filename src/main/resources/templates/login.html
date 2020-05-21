@@ -33,24 +33,24 @@
     <div class="row">
         <!--        left of page-->
         <div class="col-md-8">
+            <nav class="navbar navbar-light bg-light">
+  <span class="navbar-text">
+      <br>
+    <h5>Welcome to,</h5>
+      <h2>Pets-a-Hut</h2>
+  </span>
+            </nav>
             <div class="logImg">
 <!--                <img  src="https://images.pexels.com/photos/4056475/pexels-photo-4056475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img" alt="cover-image">-->
                 <img  src="https://images.pexels.com/photos/4056475/pexels-photo-4056475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img" alt="cover-image">
             </div>
-<!--            <div class="card bg-dark text-white">-->
-<!--                <img src="https://images.pexels.com/photos/4056475/pexels-photo-4056475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img" alt="cover-image">-->
-<!--                <div class="card-img-overlay">-->
-<!--                    <h5 class="card-title">Welcome to Pets a Hut</h5>-->
-<!--                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
-<!--                    <p class="card-text">Last updated 3 mins ago</p>-->
-<!--                </div>-->
-<!--            </div>-->
         </div>
         <!--        right of page log in form-->
         <div class="col-6 col-md-4">
             <br><br><br>
             <h3>Owner Information</h3>
-                <form th:action="@{/Account}" th:object="${account}" method="post">
+                <form th:action="@{/HomePage}" th:object="${account}" method="post">
+                    <div class="input-group mb-3">
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationServer01">Name</label>
@@ -137,16 +137,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <button type="submit" class="btn btn-outline-primary btn-lg">Add User</button>
-                        </div>
+
 <!--                        <div class="col-6">-->
 <!--                            <button type="submit" class="btn btn-outline-success btn-lg">Login</button>-->
 <!--                        </div>-->
                     </div>
-
+                    <div class="row">
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-outline-primary btn-lg">Add User</button>
+                        </div>
+                    </div>
                 </form>
+
         </div>
     </div>
 </div>
