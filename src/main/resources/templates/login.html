@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .container{
+            max-width: 100% !important;
+            height: 100% !important;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+    </style>
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -23,63 +33,35 @@
     <div class="row">
         <!--        left of page-->
         <div class="col-md-8">
-<!--            carousel begins-->
-            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://images.pexels.com/photos/46024/pexels-photo-46024.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Welcome to Pets a Hut</h5>
-                            <p>We are a new online Pet Shop! </p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://images.pexels.com/photos/825949/pexels-photo-825949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-lg-block">
-                            <h5>Dogs</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://images.pexels.com/photos/1084425/pexels-photo-1084425.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="d-block w-100" alt="...">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>Cats</h5>
-                            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                        </div>
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+            <div class="logImg">
+<!--                <img  src="https://images.pexels.com/photos/4056475/pexels-photo-4056475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img" alt="cover-image">-->
+                <img  src="https://images.pexels.com/photos/4056475/pexels-photo-4056475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img" alt="cover-image">
             </div>
-<!--            carousel ends-->
+<!--            <div class="card bg-dark text-white">-->
+<!--                <img src="https://images.pexels.com/photos/4056475/pexels-photo-4056475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img" alt="cover-image">-->
+<!--                <div class="card-img-overlay">-->
+<!--                    <h5 class="card-title">Welcome to Pets a Hut</h5>-->
+<!--                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>-->
+<!--                    <p class="card-text">Last updated 3 mins ago</p>-->
+<!--                </div>-->
+<!--            </div>-->
         </div>
         <!--        right of page log in form-->
         <div class="col-6 col-md-4">
             <br><br><br>
             <h3>Owner Information</h3>
-                <form>
+                <form th:action="@{/Account}" th:object="${account}" method="post">
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationServer01">Name</label>
-                            <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Enter name..." required>
+                            <input th:field="*{personName}" type="text" class="form-control is-valid" id="validationServer01" placeholder="Enter name..." required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="validationServer02">Phone Number</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" placeholder="(555)555-555" required>
+                            <input th:field="*{phone}" type="text" class="form-control is-valid" id="validationServer02" placeholder="(555)555-555" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -87,45 +69,49 @@
                     </div>
                     <br><br>
                     <h3>Pet Information</h3>
+<!--Pet name input-->
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationServer03">Name</label>
-                            <input type="text" class="form-control is-invalid" id="validationServer03" required>
+                            <input th:field="*{petName}" type="text" class="form-control is-invalid" id="validationServer03" required>
                             <div class="invalid-feedback">
                                 Please provide a pet name.
                             </div>
                         </div>
+<!--Pet Type input-->
                         <div class="col-md-3 mb-3">
                             <label for="validationServer04">Type</label>
-                            <select class="custom-select is-invalid" id="validationServer04" required>
-                                <option selected disabled value="">Choose...</option>
-                                <option>Cat</option>
-                                <option>Dog</option>
+                            <select th:field="*{petType}" class="custom-select is-invalid" id="validationServer04" required>
+                                <option selected disabled value="Type">Choose...</option>
+                                <option value="Cat">Cat</option>
+                                <option value="Dog">Dog</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please select a pet type.
                             </div>
                         </div>
+<!-- Pet Gender input-->
                         <div class="col-md-3 mb-3">
                             <label for="validationServer04">Gender</label>
-                            <select class="custom-select is-invalid" id="validationServer05" required>
-                                <option selected disabled value="">Choose...</option>
-                                <option>Male</option>
-                                <option>Female</option>
+                            <select th:field="*{gender}" class="custom-select is-invalid" id="validationServer05" required>
+                                <option selected disabled value="Gender">Choose...</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
                             </select>
                             <div class="invalid-feedback">
                                 Please select your pets gender.
                             </div>
                         </div>
 
-
+<!--Breed input-->
                         <div class="col-md-9 mb-3">
                             <label for="validationServer03">Breed</label>
-                            <input type="text" class="form-control is-invalid" id="validationServer06" required>
+                            <input th:field="*{breed}" type="text" class="form-control is-invalid" id="validationServer06" required>
                             <div class="invalid-feedback">
                                 Please provide your pets breed.
                             </div>
                         </div>
+<!--Pet age input-->
                         <div class="col-md-3 mb-3">
                             <label for="validationServer05">Age</label>
                             <input type="text" class="form-control is-invalid" id="validationServer08" required>
